@@ -1,7 +1,7 @@
 package hei.school.soratra.conf;
 
-import org.springframework.test.context.DynamicPropertyRegistry;
 import hei.school.soratra.PojaGenerated;
+import org.springframework.test.context.DynamicPropertyRegistry;
 
 @PojaGenerated
 public class EmailConf {

@@ -4,7 +4,6 @@ import hei.school.soratra.PojaGenerated;
 import hei.school.soratra.repository.DummyRepository;
 import hei.school.soratra.repository.DummyUuidRepository;
 import lombok.AllArgsConstructor;
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

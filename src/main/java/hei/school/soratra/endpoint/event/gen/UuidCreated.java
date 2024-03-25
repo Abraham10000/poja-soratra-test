@@ -1,6 +1,7 @@
 package hei.school.soratra.endpoint.event.gen;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import hei.school.soratra.PojaGenerated;
 import java.io.Serializable;
 import javax.annotation.processing.Generated;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import hei.school.soratra.PojaGenerated;
 
 @PojaGenerated
 @Generated("EventBridge")

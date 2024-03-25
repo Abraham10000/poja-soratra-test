@@ -1,9 +1,12 @@
 package hei.school.soratra.endpoint.event;
 
-import hei.school.soratra.concurrency.Workers;
+import static java.util.stream.Collectors.toList;
+
 import com.amazonaws.services.lambda.runtime.events.SQSEvent;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hei.school.soratra.PojaGenerated;
+import hei.school.soratra.concurrency.Workers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,11 +18,8 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import hei.school.soratra.PojaGenerated;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.DeleteMessageRequest;
-
-import static java.util.stream.Collectors.toList;
 
 @PojaGenerated
 @Component
@@ -84,16 +84,16 @@ public class EventConsumer implements Consumer<List<EventConsumer.Acknowledgeabl
           continue;
         }
         AcknowledgeableTypedEvent acknowledgeableTypedEvent =
-          new AcknowledgeableTypedEvent(
-            typedEvent,
-            () -> {
-              sqsClient.deleteMessage(
-                DeleteMessageRequest.builder()
-                  .queueUrl(eventConf.getSqsQueue())
-                  .receiptHandle(message.getReceiptHandle())
-                  .build());
-              log.info("deleted message: {}", message);
-            });
+            new AcknowledgeableTypedEvent(
+                typedEvent,
+                () -> {
+                  sqsClient.deleteMessage(
+                      DeleteMessageRequest.builder()
+                          .queueUrl(eventConf.getSqsQueue())
+                          .receiptHandle(message.getReceiptHandle())
+                          .build());
+                  log.info("deleted message: {}", message);
+                });
         res.add(acknowledgeableTypedEvent);
       }
       return res;

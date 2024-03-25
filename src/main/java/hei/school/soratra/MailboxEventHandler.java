@@ -8,12 +8,12 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.SQSEvent;
 import com.zaxxer.hikari.HikariDataSource;
+import hei.school.soratra.endpoint.event.EventConsumer;
 import java.util.List;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import hei.school.soratra.endpoint.event.EventConsumer;
 
 @Slf4j
 @PojaGenerated
@@ -30,13 +30,13 @@ public class MailboxEventHandler implements RequestHandler<SQSEvent, String> {
 
     var applicationContext = applicationContext();
     getRuntime()
-            .addShutdownHook(
-                    // in case, say, the execution timed out
-                    // TODO: no, we have no control over when AWS shuts the JVM down
-                    //   Best is to regularly check whether we are nearing end of allowedTime,
-                    //   in which case we close resources before timing out.
-                    //   Frontal functions might have the same issue also.
-                    new Thread(() -> onHandled(applicationContext)));
+        .addShutdownHook(
+            // in case, say, the execution timed out
+            // TODO: no, we have no control over when AWS shuts the JVM down
+            //   Best is to regularly check whether we are nearing end of allowedTime,
+            //   in which case we close resources before timing out.
+            //   Frontal functions might have the same issue also.
+            new Thread(() -> onHandled(applicationContext)));
 
     var eventConsumer = applicationContext.getBean(EventConsumer.class);
     var messageConverter = applicationContext.getBean(EventConsumer.SqsMessageAckTyper.class);

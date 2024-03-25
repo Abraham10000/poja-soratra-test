@@ -1,8 +1,8 @@
 package hei.school.soratra.conf;
 
+import hei.school.soratra.PojaGenerated;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.testcontainers.containers.PostgreSQLContainer;
-import hei.school.soratra.PojaGenerated;
 
 @PojaGenerated
 public class PostgresConf {

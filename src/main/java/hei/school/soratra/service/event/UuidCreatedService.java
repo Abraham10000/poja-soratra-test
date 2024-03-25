@@ -1,13 +1,13 @@
 package hei.school.soratra.service.event;
 
-import java.util.function.Consumer;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 import hei.school.soratra.PojaGenerated;
 import hei.school.soratra.endpoint.event.gen.UuidCreated;
 import hei.school.soratra.repository.DummyUuidRepository;
 import hei.school.soratra.repository.model.DummyUuid;
+import java.util.function.Consumer;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 @PojaGenerated
 @Service

@@ -1,8 +1,8 @@
 package hei.school.soratra.concurrency;
 
+import hei.school.soratra.PojaGenerated;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
-import hei.school.soratra.PojaGenerated;
 
 @PojaGenerated
 @Slf4j

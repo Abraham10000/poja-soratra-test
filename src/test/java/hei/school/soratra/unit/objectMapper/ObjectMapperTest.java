@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
+import hei.school.soratra.conf.FacadeIT;
 import java.time.Instant;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import hei.school.soratra.conf.FacadeIT;
 
 public class ObjectMapperTest extends FacadeIT {
   @Autowired ObjectMapper injectedBean;

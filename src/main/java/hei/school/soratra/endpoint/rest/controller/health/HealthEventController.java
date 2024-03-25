@@ -1,20 +1,18 @@
 package hei.school.soratra.endpoint.rest.controller.health;
 
+import static hei.school.soratra.endpoint.rest.controller.health.PingController.KO;
+import static hei.school.soratra.endpoint.rest.controller.health.PingController.OK;
+import static java.util.UUID.randomUUID;
+
 import hei.school.soratra.PojaGenerated;
 import hei.school.soratra.endpoint.event.EventProducer;
 import hei.school.soratra.endpoint.event.gen.UuidCreated;
 import hei.school.soratra.repository.DummyUuidRepository;
+import java.util.List;
 import lombok.AllArgsConstructor;
-import lombok.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
-import static hei.school.soratra.endpoint.rest.controller.health.PingController.KO;
-import static hei.school.soratra.endpoint.rest.controller.health.PingController.OK;
-import static java.util.UUID.randomUUID;
 
 @PojaGenerated
 @RestController
